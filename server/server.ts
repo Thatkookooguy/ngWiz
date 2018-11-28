@@ -40,10 +40,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(`${STATIC_FILES_LOCATION}/index.html`);
-});
-
 app.get('/isServing', (req, res) => {
   logger.log.debug(`Client ask if currently running "ng serve", answering ${!!ngServeCommandId}`);
   res.send(!!ngServeCommandId);
@@ -195,6 +191,10 @@ app.listen(PORT, () => {
   if (isOpenBrowser) {
     openBrowser(PORT);
   }
+});
+
+app.get('/*', (req, res) => {
+  res.sendFile(`${STATIC_FILES_LOCATION}/index.html`);
 });
 
 function openBrowser(port) {
