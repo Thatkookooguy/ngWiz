@@ -26,6 +26,9 @@ process.argv.forEach((val, index, array) => {
   if (val === '-o') {
     isOpenBrowser = true;
   }
+  if (val === '-here') {
+    process.chdir(process.env.INIT_CWD);
+  }
 });
 
 const processRunner = new ProcessRunner();
@@ -191,6 +194,7 @@ app.listen(PORT, () => {
   logger.log.clearContext();
   printLogo();
   // TODO: Add version/build number here
+  logger.log.debug(`Running at ${process.cwd()}`);
   logger.log.debug(`Listening on http://localhost:${PORT}`);
   if (isOpenBrowser) {
     openBrowser(PORT);

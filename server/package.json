@@ -5,8 +5,7 @@
   "main": "../dist/out-tsc/server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ../dist/out-tsc/server/server.js",
-    "start-browser": "node ../dist/out-tsc/server/server.js -o"
+    "start": "node ../dist/out-tsc/server/server.js -here -o"
   },
   "author": "Or Tichon",
   "license": "MIT",
